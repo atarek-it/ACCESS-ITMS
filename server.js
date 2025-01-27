@@ -13,8 +13,10 @@ const PORT = 5000;
 
 // Middleware
 app.use(express.json());  // Parse JSON data in requests
-app.use(cors());  // Enable Cross-Origin Resource Sharing (CORS)
-
+app.use(cors({
+  origin: 'http://localhost:5173', // Allow requests from this origin
+  credentials: true, // Allow cookies and credentials
+}));
 // Connect to MongoDB using the URI from the .env file
 mongoose.connect("mongodb+srv://ACCESSOILITMS:2481001ACCESSITMS@cluster0.0xyqn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
