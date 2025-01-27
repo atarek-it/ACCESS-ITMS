@@ -13,12 +13,7 @@ const PORT = 5000;
 
 // Middleware
 app.use(express.json());  // Parse JSON data in requests
-app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from this origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-  credentials: true, // Allow cookies and credentials
-}));
+app.use(cors());
 
 // Handle preflight requests
 app.options('*', cors()); // Enable preflight for all routes
