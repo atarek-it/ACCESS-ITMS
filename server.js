@@ -10,6 +10,7 @@ const printerRoutes = require('./routes/printers');
 const PrinterModel = require('./models/Printers');  
 const app = express();
 const PORT = 5000;
+require("dotenv").config()
 
 // Middleware
 app.use(express.json());  // Parse JSON data in requests
@@ -121,6 +122,6 @@ app.post('/api/it-support-response', authenticateToken, async (req, res) => {
 
 
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT||procces.env.PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
